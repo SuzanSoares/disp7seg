@@ -7,12 +7,19 @@
 
 
 #include <xc.h>
+#include "config.h"
+
+#define BOTAO_UP PORTDbits.RD2;
+#define BOTAO_DOWN PORTDbits.RD3;
+
 
 void init_display(void)
 {
     ANSELH = 0;
-    TRISD = 0x00;
-    PORTD = 0x00;        
+    TRISB = 0X00;
+    PORTB = 0X00;
+    TRISDbits.TRISD2 = 1;
+    TRISDbits.TRISD3 = 1;
 }
 
 char vetor[16] = { 0x3F, 0x06, 0x5B, 0x4F,
@@ -26,4 +33,14 @@ void display7seg( char c )
         PORTB = vetor[c];
     else
         PORTB = 0x00;
+}
+
+int botao_up ( void )
+{
+    return BOTAO_UP;
+}
+
+int botao_down ( void )
+{
+    return BOTAO_DOWN;
 }
