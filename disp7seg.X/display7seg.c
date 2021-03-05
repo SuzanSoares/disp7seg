@@ -9,8 +9,8 @@
 #include <xc.h>
 #include "config.h"
 
-#define BOTAO_UP PORTDbits.RD2;
-#define BOTAO_DOWN PORTDbits.RD3;
+#define BOTAO_UP PORTDbits.RD3;
+#define BOTAO_DOWN PORTDbits.RD2;
 
 
 void init_display(void)
